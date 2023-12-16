@@ -1,3 +1,12 @@
+/**
+ * @author D3crvpt3d
+ * 
+ * @version 0.1.0
+ * 
+ * Easy to use and lightweight timer that handels efficient String formatting
+ * 
+ * @see https://github.com/d3crvpt3d/NiceTime
+ */
 public class NiceTime {
     
     private long startTime;
@@ -7,11 +16,12 @@ public class NiceTime {
         this.startTime = System.nanoTime();
     }
 
-    /*
-     * Default Value: 3
+    /**
+     * changes the amount of max. Decimal Places
      * 
+     * @DefaultValue 3
      * 
-     * @return void
+     * @exception IllegalArgumentException
      */
     public void setMaxDecimalPlaces(int maxDecimalPlaces) throws IllegalArgumentException {
         if(maxDecimalPlaces < 0){
@@ -20,16 +30,22 @@ public class NiceTime {
         this.maxDecimalPlaces = maxDecimalPlaces;
     }
 
-    /*
-     * Resets the nanoTime
-     * 
-     * @return
+    /**
+     * resets the time
      */
     public void resetTime(){
         this.startTime = System.nanoTime();
     }
 
-    /*
+    /**
+     * 
+     * @return elapsed nanoseconds from last reset
+     */
+    public long getElapsedNano(){
+        return System.nanoTime()-startTime;
+    }
+
+    /**
      * Returns the elapsed Time from initializing this Object
      * or from last reset by calling 'resetTime()'
      * 
